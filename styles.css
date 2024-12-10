@@ -261,3 +261,25 @@ iframe {
         height: 200px; /* Hauteur fixe même sur mobile */
     }
 }
+
+/* Format photos */
+.photos {
+    display: flex;
+    flex-wrap: wrap; /* Permet d'ajuster les images sur plusieurs lignes */
+    justify-content: center; /* Centre les images */
+    gap: 20px; /* Espacement entre les images */
+    padding: 20px;
+}
+
+.photos img {
+    width: 400px; /* Largeur fixe des images */
+    height: 400px; /* Hauteur fixe des images */
+    object-fit: cover; /* Recadre les images sans les déformer */
+    border-radius: 8px; /* Coins arrondis pour un style esthétique */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre douce */
+    transition: transform 0.3s ease; /* Effet de transition pour le zoom */
+}
+
+.photos img:hover {
+    transform: scale(1.1); /* Zoom léger au survol */
+}
