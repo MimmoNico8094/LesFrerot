@@ -154,6 +154,57 @@ p {
     line-height: 1.6;
 }
 
+/* Menu du restaurant */
+.menu-section {
+    padding: 40px;
+    background-color: var(--secondary-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    text-align: left;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.menu-section h2 {
+    text-align: center;
+    font-size: 32px;
+    color: var(--accent-color);
+    margin-bottom: 30px;
+}
+
+.menu-category {
+    margin-bottom: 30px;
+}
+
+.menu-category h3 {
+    font-size: 24px;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 5px;
+}
+
+.menu-category ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-category ul li {
+    font-size: 18px;
+    color: var(--secondary-text-color);
+    margin: 10px 0;
+    padding-left: 15px;
+    position: relative;
+}
+
+.menu-category ul li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-size: 20px;
+}
+
 /* Formulaire de réservation */
 form input, form textarea, form button {
     width: 100%; /* Assure que tous les champs prennent la même largeur */
