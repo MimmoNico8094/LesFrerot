@@ -11,7 +11,7 @@
     --secondary-bg-color: #ffffff; /* Fond des sections */
     --primary-text-color: #ffffff; /* Texte principal en blanc */
     --secondary-text-color: #444444; /* Texte secondaire en gris */
-    --accent-color: #0099cc; /* Couleur d'accent (bleu) */
+    --accent-color: rgb(122, 29, 150); /* Couleur d'accent (bleu) */
     --border-color: #eeeeee; /* Bordure claire */
 }
 
@@ -282,4 +282,24 @@ iframe {
 
 .photos img:hover {
     transform: scale(1.1); /* Zoom léger au survol */
+}
+
+.hero {
+    background-image: url('chemin/vers/votre/image.jpg'); /* Remplacez par le chemin de votre image */
+    background-size: cover;
+    background-position: center;
+    color: var(--primary-text-color); /* Assure que le texte est visible */
+    text-align: center;
+    padding: 100px 20px; /* Ajuste l'espacement pour un effet visuel agréable */
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: var(--accent-color); /* Accentuer le titre */
+}
+
+.hero p {
+    font-size: 20px;
+    line-height: 1.6;
 }
