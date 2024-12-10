@@ -1,42 +1,91 @@
+/* Général */
 body {
-    font-family: 'Georgia', serif;
+    background-color: black;
+    color: white;
+    font-family: 'Arial', sans-serif; /* Police générale */
     margin: 0;
     padding: 0;
-    background-color: #000;
-    color: #fff;
-    line-height: 1.6;
+    box-sizing: border-box;
 }
 
-header {
-    background: #111;
-    padding: 1rem 0;
-    text-align: center;
-}
-
-header h1 {
-    font-size: 2.5rem;
-    font-style: italic;
-    margin: 0;
-}
-
-nav a {
-    color: #fff;
-    margin: 0 1rem;
+a {
+    color: white;
     text-decoration: none;
-    font-style: italic;
 }
 
-nav a:hover {
-    color: #aaa;
+/* Header */
+header {
+    background-color: gray;
+    border-bottom: 3px solid white;
+    padding: 10px 0;
 }
 
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    font-size: 18px;
+    color: white;
+}
+
+/* Sections */
 section {
-    padding: 2rem;
-    text-align: center;
+    padding: 50px 20px;
+    border-top: 3px solid white;
 }
 
+h1, h2 {
+    color: white;
+}
+
+/* Footer */
 footer {
-    background: #111;
+    background-color: gray;
+    color: white;
     text-align: center;
-    padding: 1rem 0;
+    padding: 15px 0;
+    border-top: 3px solid white;
+}
+
+/* Formulaire */
+form input, form button {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+}
+
+form button {
+    cursor: pointer;
+}
+
+form input:focus, form button:focus {
+    outline: none;
+    border-color: yellow;
+}
+
+/* Map iframe */
+iframe {
+    border: 3px solid white;
+    margin-top: 20px;
+}
+
+/* Style des bordures de page */
+body {
+    border: 10px solid white; /* Bordure autour de la page */
+    padding: 20px;
+}
+
+/* Option : Ajouter un effet de transition pour l'inversion */
+body {
+    transition: background-color 0.5s, color 0.5s;
 }
