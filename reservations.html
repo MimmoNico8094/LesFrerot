@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil - Les Frérot</title>
+    <title>Réservations - Les Frérot</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,14 +19,22 @@
         </nav>
     </header>
     <main>
-        <section class="intro">
-            <h1>Bienvenue chez Les Frérot</h1>
-            <p>Venez découvrir notre cuisine italienne traditionnelle, dans un cadre chaleureux.</p>
-        </section>
-        <section class="specialites">
-            <h2>Nos spécialités</h2>
-            <p>Découvrez nos plats phares, comme les pâtes maison et le tiramisu.</p>
-        </section>
+        <h1>Réservez une table chez Les Frérot</h1>
+        <form action="/submit-form" method="POST">
+            <label for="name">Nom :</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="date">Date de la réservation :</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Heure :</label>
+            <input type="time" id="time" name="time" required>
+
+            <label for="guests">Nombre de personnes :</label>
+            <input type="number" id="guests" name="guests" required>
+
+            <button type="submit">Réserver</button>
+        </form>
     </main>
     <footer>
         <p>&copy; 2024 Les Frérot. Tous droits réservés.</p>
