@@ -1,4 +1,4 @@
-/* Réinitialisation des marges et des paddings */
+ /* Réinitialisation des marges et des paddings */
 * {
     margin: 0;
     padding: 0;
@@ -95,6 +95,65 @@ p {
     line-height: 1.8;
 }
 
+/* Galerie spécifique - Assurez-vous que le texte soit bien visible */
+.galerie-section {
+    background-color: var(--primary-bg-color); /* Fond sombre pour la galerie */
+    color: var(--primary-text-color); /* Texte en blanc pour un bon contraste */
+}
+
+.galerie-section h2, .galerie-section p {
+    color: var(--primary-text-color); /* Mettre le texte en blanc pour le contraste */
+}
+
+/* Galerie images - Mise à taille uniforme */
+.galerie-section .gallery-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.galerie-section .gallery-images img {
+    width: 300px; /* Fixe la largeur des images à 300px */
+    height: 200px; /* Fixe la hauteur des images à 200px */
+    object-fit: cover; /* Assure que l'image garde ses proportions sans être déformée */
+    border-radius: 8px; /* Bord arrondi pour un look moderne */
+}
+
+/* Horaires du restaurant */
+.horaires-section {
+    background-color: var(--secondary-bg-color);
+    color: var(--secondary-text-color);
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.horaires-section h2 {
+    font-size: 24px;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.horaires-section p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.horaires-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.horaires-section ul li {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
 /* Formulaire de réservation */
 form input, form textarea, form button {
     width: 100%; /* Assure que tous les champs prennent la même largeur */
@@ -146,21 +205,8 @@ iframe {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
-    form input, form textarea, form button {
-        width: 100%;
-        margin-bottom: 15px;
-    }
-
-    iframe {
-        width: 100%;
-        height: 300px;
+    .galerie-section .gallery-images img {
+        width: 100%; /* Les images prennent toute la largeur de l'écran */
+        height: 200px; /* Hauteur fixe même sur mobile */
     }
 }
