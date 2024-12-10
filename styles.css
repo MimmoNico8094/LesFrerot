@@ -1,91 +1,166 @@
-/* Général */
-body {
-    background-color: black;
-    color: white;
-    font-family: 'Arial', sans-serif; /* Police générale */
+/* Réinitialisation des marges et des paddings */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-a {
-    color: white;
-    text-decoration: none;
+/* Définition des couleurs principales */
+:root {
+    --primary-bg-color: #222222;  /* Fond sombre */
+    --secondary-bg-color: #ffffff; /* Fond des sections */
+    --primary-text-color: #ffffff; /* Texte principal en blanc */
+    --secondary-text-color: #444444; /* Texte secondaire en gris */
+    --accent-color: #0099cc; /* Couleur d'accent (bleu) */
+    --border-color: #eeeeee; /* Bordure claire */
 }
 
-/* Header */
+/* Corps de la page */
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: var(--primary-bg-color);
+    color: var(--primary-text-color);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Entête */
 header {
-    background-color: gray;
-    border-bottom: 3px solid white;
-    padding: 10px 0;
+    background-color: var(--primary-bg-color);
+    padding: 20px 0;
+    margin-bottom: 30px;
 }
 
 nav ul {
+    display: flex;
+    justify-content: center;
     list-style: none;
-    padding: 0;
-    text-align: center;
 }
 
 nav ul li {
-    display: inline;
-    margin: 0 15px;
+    margin: 0 20px;
 }
 
 nav ul li a {
+    color: var(--primary-text-color);
+    text-decoration: none;
     font-size: 18px;
-    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
 
-/* Sections */
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+/* Section principale */
+main {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.intro h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+}
+
+.specialites h2 {
+    font-size: 28px;
+    margin-top: 20px;
+    color: var(--accent-color);
+}
+
+/* Sections supplémentaires */
 section {
-    padding: 50px 20px;
-    border-top: 3px solid white;
+    padding: 40px;
+    background-color: var(--secondary-bg-color);
+    margin: 20px 0;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-h1, h2 {
-    color: white;
+h2 {
+    font-size: 24px;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 16px;
+    color: var(--secondary-text-color);
+    line-height: 1.8;
+}
+
+/* Formulaire de réservation */
+form input, form textarea, form button {
+    width: 100%; /* Assure que tous les champs prennent la même largeur */
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+form input:focus, form textarea:focus, form button:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+/* Style spécifique pour textarea */
+form textarea {
+    height: 150px; /* Hauteur du champ "Message" ajustable */
+    resize: vertical; /* Permet à l'utilisateur de redimensionner verticalement */
+}
+
+/* Optionnel: Style pour le bouton de soumission */
+form button {
+    background-color: var(--accent-color);
+    color: var(--primary-text-color);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #e67e22;
 }
 
 /* Footer */
 footer {
-    background-color: gray;
-    color: white;
     text-align: center;
-    padding: 15px 0;
-    border-top: 3px solid white;
-}
-
-/* Formulaire */
-form input, form button {
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid white;
-    background-color: black;
-    color: white;
-}
-
-form button {
-    cursor: pointer;
-}
-
-form input:focus, form button:focus {
-    outline: none;
-    border-color: yellow;
+    padding: 20px;
+    background-color: var(--primary-bg-color);
+    color: var(--primary-text-color);
+    margin-top: 50px;
 }
 
 /* Map iframe */
 iframe {
-    border: 3px solid white;
-    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Style des bordures de page */
-body {
-    border: 10px solid white; /* Bordure autour de la page */
-    padding: 20px;
-}
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
 
-/* Option : Ajouter un effet de transition pour l'inversion */
-body {
-    transition: background-color 0.5s, color 0.5s;
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    form input, form textarea, form button {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    iframe {
+        width: 100%;
+        height: 300px;
+    }
 }

@@ -39,7 +39,10 @@
         <form>
             <input type="text" placeholder="Votre nom" required>
             <input type="date" required>
-            <input type="time" required>
+            
+            <!-- Définir l'heure avec intervalle de 15 minutes entre 10h et 22h30 -->
+            <input type="time" required step="900" min="12:00" max="21:30">
+            
             <button type="submit">Réserver</button>
         </form>
     </section>
