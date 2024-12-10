@@ -6,6 +6,7 @@
     <title>Accueil - Les Frérot</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <header>
         <nav>
@@ -25,41 +26,92 @@
             <h1>Bienvenue chez Les Frérot</h1>
             <p>Venez découvrir notre cuisine italienne traditionnelle, dans un cadre chaleureux.</p>
         </section>
+
+        <!-- Section Horaires d'ouverture -->
+        <section class="horaires-section">
+            <h2>Horaires d'ouverture</h2>
+            <p>Nous sommes ouverts :</p>
+            <ul>
+                <li>Du lundi au samedi :</li>
+                <li>12h00 - 14h30</li>
+                <li>18h30 - 22h00</li>
+            </ul>
+        </section>
+
+        <!-- Section Avis Clients -->
+        <section class="avis-section">
+            <h2>Partagez votre avis</h2>
+            <!-- Formulaire de soumission d'avis -->
+            <form action="#" method="POST" id="form-avis">
+                <label for="nom">Votre nom</label>
+                <input type="text" id="nom" name="nom" required>
+        
+                <label for="avis">Votre avis</label>
+                <textarea id="avis" name="avis" rows="4" required></textarea>
+        
+                <label for="note">Votre note</label>
+                <div class="stars">
+                    <input type="radio" id="star1" name="note" value="1"><label for="star1">☆</label>
+                    <input type="radio" id="star2" name="note" value="2"><label for="star2">☆</label>
+                    <input type="radio" id="star3" name="note" value="3"><label for="star3">☆</label>
+                    <input type="radio" id="star4" name="note" value="4"><label for="star4">☆</label>
+                    <input type="radio" id="star5" name="note" value="5"><label for="star5">☆</label>
+                </div>
+                
+                <p id="rating-value"></p> <!-- Ce paragraphe affichera la note sélectionnée -->
+                      
+        
+                <button type="submit">Envoyer votre avis</button>
+            </form>
+        
+            <h3>Avis de nos clients :</h3>
+            <div id="avis-container">
+                <!-- Les avis soumis seront affichés ici -->
+            </div>
+        </section>
+
     </main>
 
-    <section class="horaires-section">
-        <h2>Horaires d'ouverture</h2>
-        <p>Nous sommes ouverts :</p>
-        <ul>
-            <li>Du lundi au samedi :</li>
-            <li>12h00 - 14h30</li>
-            <li>18h30 - 22h00</li>
-        </ul>
-    </section>
+    <!-- Placer le script ici avant la fermeture du body -->
+    <script>
+        // Fonction pour gérer le survol des étoiles et la sélection de la note
+        const stars = document.querySelectorAll('.stars input[type="radio"]');
+        
+        // Ajouter un événement de survol pour changer la couleur des étoiles
+        stars.forEach(star => {
+            star.addEventListener('change', function() {
+                const rating = this.value; // Récupérer la valeur de la note sélectionnée
+                console.log('Note sélectionnée :', rating); // Afficher dans la console (pour le test)
+                
+                // Optionnel: afficher la note sélectionnée à l'utilisateur (dans un élément spécifique)
+                document.querySelector('#rating-value').textContent = `Vous avez sélectionné ${rating} étoile(s)`;
+            });
+        });
 
-    <section id="reservation">
-        <h2>Réservez une table</h2>
-        <form>
-            <input type="text" placeholder="Votre nom" required>
-            <input type="date" required>
-            
-            <!-- Définir l'heure avec intervalle de 15 minutes entre 10h et 22h30 -->
-            <input type="time" required step="900" min="12:00" max="21:30">
-            
-            <button type="submit">Réserver</button>
-        </form>
-    </section>
+        // Gérer la soumission du formulaire
+        const form = document.getElementById('form-avis');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Empêcher l'envoi du formulaire par défaut pour l'instant
 
-    <section id="contact">
-        <h2>Contactez-nous</h2>
-        <p>Adresse : Rue Vanderdussen 60, 1080 Bruxelles</p>
-        <p>Téléphone : +32 471 64 77 20 / +32 473 18 56 21</p>
-        <p>Email : mimmopulci@hotmail.com / nicocicchini@hotmail.fr</p>
-        <iframe src="https://maps.google.com/maps?q=Rue%20Vanderdussen%2060,%201080%20Bruxelles&t=&z=13&ie=UTF8&iwloc=&output=embed" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-    </section>
+            // Récupérer le nom, l'avis et la note
+            const name = document.getElementById('nom').value;
+            const review = document.getElementById('avis').value;
+            const rating = document.querySelector('.stars input[type="radio"]:checked').value;
 
-    <footer>
-        <p>&copy; 2024 Les Frérot. Tous droits réservés.</p>
-    </footer>
+            // Afficher l'avis dans le container (vous pouvez améliorer cela pour afficher les avis dynamiquement)
+            const avisContainer = document.getElementById('avis-container');
+            const newAvis = document.createElement('div');
+            newAvis.classList.add('avis');
+            newAvis.innerHTML = `
+                <strong>${name}</strong> a donné une note de ${rating} étoiles.
+                <p>${review}</p>
+            `;
+            avisContainer.appendChild(newAvis);
+
+            // Réinitialiser le formulaire
+            form.reset();
+            document.querySelector('#rating-value').textContent = ''; // Réinitialiser la valeur affichée
+        });
+    </script>
 </body>
 </html>

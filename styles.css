@@ -1,4 +1,4 @@
- /* Réinitialisation des marges et des paddings */
+/* Réinitialisation des marges et des paddings */
 * {
     margin: 0;
     padding: 0;
@@ -205,19 +205,60 @@ p {
     font-size: 20px;
 }
 
-/* Formulaire de réservation */
-form input, form textarea, form button {
-    width: 100%; /* Assure que tous les champs prennent la même largeur */
-    padding: 15px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+/* Le formulaire */
+form {
+    display: block; /* Permet aux éléments du formulaire de s'empiler */
+    text-align: center; /* Centrer le texte et les éléments */
+    max-width: 600px; /* Limite la largeur du formulaire pour le rendre plus propre */
+    margin: 0 auto; /* Centrer le formulaire dans la page */
 }
 
+form input, form textarea, form button {
+    display: block; /* Force tous les éléments à s'empiler verticalement */
+    width: 100%; /* Les éléments prennent toute la largeur du formulaire */
+    margin: 10px 0; /* Espacement entre les éléments */
+    padding: 10px; /* Espacement interne des champs */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 20px; /* Taille de police des champs */
+}
+
+/* Réduction de la taille du champ textarea */
+form textarea {
+    height: 120px; /* Hauteur réduite pour textarea */
+    resize: vertical; /* Permet de redimensionner uniquement verticalement */
+}
+
+/* Style pour le bouton de soumission (Réserver) */
+form button {
+    background-color: var(--accent-color);
+    color: var(--primary-text-color);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 14px; /* Taille de la police réduite pour un bouton plus petit */
+    padding: 8px 16px; /* Ajuste l'espacement du bouton */
+    width: auto; /* Le bouton s'adapte à son contenu */
+    max-width: 200px; /* Limite la largeur maximale du bouton */
+    margin: 20px auto; /* Centre le bouton horizontalement et donne de l'espace autour */
+}
+
+form button:hover {
+    background-color: #e67e22;
+}
+
+/* Style pour les labels */
+form label {
+    display: block; /* Forcer les labels à occuper toute la largeur */
+    margin-bottom: 10px; /* Espace sous chaque label */
+    font-size: 20px; /* Taille du texte des labels */
+    color: white; /* Couleur des labels */
+}
+
+/* Focus sur les champs */
 form input:focus, form textarea:focus, form button:focus {
     outline: none;
-    border-color: var(--accent-color);
+    border-color: var(--accent-color); /* Bordure mise en évidence en focus */
 }
 
 /* Style spécifique pour textarea */
@@ -302,4 +343,109 @@ iframe {
 .hero p {
     font-size: 20px;
     line-height: 1.6;
+}
+
+/* Section Avis Clients */
+.avis-section {
+    background-color: rgb(255, 255, 255);
+    padding: 40px;
+    margin: 20px 0;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    text-align: center;
+}
+
+#form-avis {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+#form-avis label {
+    font-size: 16px;
+    color: black;
+}
+
+#form-avis input, #form-avis textarea {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+}
+
+#form-avis button {
+    padding: 10px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#form-avis button:hover {
+    background-color: var(--hover-color);
+}
+
+.stars {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.stars input[type="radio"] {
+    display: none;
+}
+
+.stars label {
+    font-size: 200px; /* Taille des étoiles agrandie */
+    cursor: pointer;
+    color: #d3d3d3; /* Couleur par défaut des étoiles non sélectionnées */
+    transition: color 0.3s ease, transform 0.3s ease; /* Transition pour la couleur et l'agrandissement */
+}
+
+/* Effet de survol (les étoiles deviennent dorées et légèrement agrandies) */
+.stars label:hover {
+    color: #ff0000; /* Couleur dorée pour les étoiles survolées */
+    transform: scale(1.2); /* Agrandissement des étoiles au survol */
+}
+
+/* Agrandir l'étoile sélectionnée et la rendre dorée */
+.stars input[type="radio"]:checked + label {
+    color: #ff0000; /* Couleur dorée après sélection */
+    transform: scale(2.0); /* Agrandissement de l'étoile sélectionnée */
+}
+
+/* Maintien de la couleur dorée après la sélection, sans affecter les autres étoiles */
+.stars input[type="radio"]:checked ~ label {
+    color: #ff0000; /* Couleur dorée pour les étoiles à gauche */
+}
+
+/* Retour à la taille normale pour les étoiles non sélectionnées */
+.stars label:not(:checked) {
+    transform: scale(1); /* Taille normale des étoiles non sélectionnées */
+}
+
+.avis-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.avis {
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    color: var(--secondary-text-color);
+}
+
+.avis p {
+    margin: 10px 0;
+}
+
+.avis strong {
+    font-weight: bold;
+    color: var(--accent-color);
 }

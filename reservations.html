@@ -5,6 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Réservations - Les Frérot</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            const dateInput = document.getElementById('date');
+
+            // Obtenir la date du jour au format YYYY-MM-DD
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = (today.getMonth() + 1).toString().padStart(2, '0'); // Mois au format MM
+            const dd = today.getDate().toString().padStart(2, '0'); // Jour au format DD
+            const todayFormatted = `${yyyy}-${mm}-${dd}`;
+
+            // Définir la date minimale (aujourd'hui)
+            dateInput.setAttribute('min', todayFormatted);
+
+            // Désactiver les dimanches
+            dateInput.addEventListener('input', function() {
+                const selectedDate = new Date(dateInput.value);
+                const day = selectedDate.getDay(); // 0 est dimanche, 1 est lundi, etc.
+
+                // Si c'est un dimanche, désactiver la sélection
+                if (day === 0) {
+                    alert("Les réservations ne sont pas possibles le dimanche.");
+                    dateInput.setCustomValidity("Le dimanche n'est pas un jour disponible pour les réservations.");
+                } else {
+                    dateInput.setCustomValidity(""); // Réinitialiser si ce n'est pas un dimanche
+                }
+            });
+
+            // Désactiver le dimanche dans le calendrier
+            dateInput.addEventListener('click', function() {
+                const today = new Date();
+                const day = today.getDay(); // 0 est dimanche, 1 est lundi, etc.
+                if (day === 0) {
+                    // Empêche la sélection du dimanche
+                    dateInput.value = '';
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <header>
@@ -21,18 +61,43 @@
     </header>
     <main>
         <h1>Réservez une table chez Les Frérot</h1>
-        <form action="/submit-form" method="POST">
-            <label for="name">Nom :</label>
+        <form action="send_reservation.php" method="POST">
+            <label for="name">Nom</label>
             <input type="text" id="name" name="name" required>
 
-            <label for="date">Date de la réservation :</label>
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="date">Date de la réservation</label>
             <input type="date" id="date" name="date" required>
 
-            <label for="time">Heure :</label>
-            <input type="time" id="time" name="time" required>
+            <label for="time">Heure</label>
+            <input list="available-times" id="time" name="time" required>
+            <datalist id="available-times">
+                <option value="12:00">
+                <option value="12:15">
+                <option value="12:30">
+                <option value="12:45">
+                <option value="13:00">
+                <option value="13:15">
+                <option value="13:30">
+                <option value="18:00">
+                <option value="18:15">
+                <option value="18:30">
+                <option value="18:45">
+                <option value="19:00">
+                <option value="19:15">
+                <option value="19:30">
+                <option value="19:45">
+                <option value="20:00">
+                <option value="20:15">
+                <option value="20:30">
+                <option value="20:45">
+                <option value="21:00">
+            </datalist>
 
-            <label for="guests">Nombre de personnes :</label>
-            <input type="number" id="guests" name="guests" required>
+            <label for="guests">Nombre de personnes</label>
+            <input type="number" id="guests" name="guests" required min="2" max="10">
 
             <button type="submit">Réserver</button>
         </form>
