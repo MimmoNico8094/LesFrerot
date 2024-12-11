@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,55 +10,55 @@
     <header>
         <nav>
             <ul>
-                <li><a href="index.html">Accueil</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="menu.html">Menu</a></li>
-                <li><a href="reservations.html">Réservations</a></li>
-                <li><a href="galerie.html">Galerie</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="a-propos.html">À propos</a></li>
+                <li><a href="reservations.html">Reserveringen</a></li>
+                <li><a href="galerie.html">Galerij</a></li>
+                <li><a href="contact-nl.html">Contact</a></li>
+                <li><a href="a-propos.html">Over ons</a></li>
             </ul>
         </nav>
 
-        <!-- Sélecteur de langue avec drapeaux -->
+        <!-- Taalselector met vlaggen -->
         <nav class="language-selector">
             <ul>
                <li>
                    <a href="contact.html">Français</a>
-                   <span class="french"></span> <!-- Drapeau français -->
+                   <span class="french"></span> <!-- Franse vlag -->
                </li>
                <li>
                    <a href="contact-nl.html">Nederlands</a>
-                   <span class="dutch"></span> <!-- Drapeau néerlandais -->
+                   <span class="dutch"></span> <!-- Nederlandse vlag -->
                </li>
            </ul>
        </nav>
     </header>
     <main>
-        <h1>Contactez-nous</h1>
+        <h1>Neem contact met ons op</h1>
         <form action="/send-message" method="POST">
-            <label for="name">Nom :</label>
+            <label for="name">Naam :</label>
             <input type="text" id="name" name="name" required>
 
-            <label for="email">Email :</label>
+            <label for="email">E-mail :</label>
             <input type="email" id="email" name="email" required>
 
-            <label for="message">Message :</label>
+            <label for="message">Bericht :</label>
             <textarea id="message" name="message" required></textarea>
 
-            <button type="submit">Envoyer</button>
+            <button type="submit">Verstuur</button>
         </form>
 
         <section id="contact">
-            <h2>Rejoignez-nous</h2>
-            <p>Adresse : Rue Vanderdussen 60, 1080 Bruxelles</p>
-            <p>Téléphone : +32 471 64 77 20 / +32 473 18 56 21</p>
-            <p>Email : mimmopulci@hotmail.com / nicocicchini@hotmail.fr</p>
+            <h2>Bezoek ons</h2>
+            <p>Adres : Rue Vanderdussen 60, 1080 Brussel</p>
+            <p>Telefoon : +32 471 64 77 20 / +32 473 18 56 21</p>
+            <p>E-mail : mimmopulci@hotmail.com / nicocicchini@hotmail.fr</p>
             <iframe src="https://maps.google.com/maps?q=Rue%20Vanderdussen%2060,%201080%20Bruxelles&t=&z=13&ie=UTF8&iwloc=&output=embed" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
         </section>
         
     </main>
     <footer>
-        <p>&copy; 2024 Les Frérot. Tous droits réservés.</p>
+        <p>&copy; 2024 Les Frérot. Alle rechten voorbehouden.</p>
     </footer>
 </body>
 </html>

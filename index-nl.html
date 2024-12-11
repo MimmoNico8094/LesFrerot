@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil - Les Frérot</title>
+    <title>Home - Les Frérot</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -11,59 +11,59 @@
     <header>
         <nav>
             <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="reservations.html">Réservations</a></li>
-                <li><a href="galerie.html">Galerie</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="a-propos.html">À propos</a></li>
+                <li><a href="index-nl.html">Home</a></li>
+                <li><a href="menu-nl.html">Menu</a></li>
+                <li><a href="reservations-nl.html">Reserveringen</a></li>
+                <li><a href="galerie-nl.html">Galerij</a></li>
+                <li><a href="contact-nl.html">Contact</a></li>
+                <li><a href="a-propos-nl.html">Over ons</a></li>
             </ul>
         </nav>
 
-        <!-- Sélecteur de langue avec drapeaux -->
+        <!-- Sélecteur de langue -->
         <nav class="language-selector">
-             <ul>
-                <li>
-                    <a href="index.html">Français</a>
-                    <span class="french"></span> <!-- Drapeau français -->
-                </li>
+            <ul>
                 <li>
                     <a href="index-nl.html">Nederlands</a>
                     <span class="dutch"></span> <!-- Drapeau néerlandais -->
                 </li>
-            </ul>
-        </nav>
+               <li>
+                   <a href="index.html">Français</a>
+                   <span class="french"></span> <!-- Drapeau français -->
+               </li>
+           </ul>
+       </nav>
     </header>
     <main>
         <!-- Section d'introduction avec arrière-plan -->
         <section class="hero">
-            <h1>Bienvenue chez Les Frérot</h1>
-            <p>Venez découvrir notre cuisine italienne traditionnelle, dans un cadre chaleureux.</p>
+            <h1>Welkom bij Les Frérot</h1>
+            <p>Kom genieten van onze traditionele Italiaanse keuken in een warme en gezellige sfeer.</p>
         </section>
 
         <!-- Section Horaires d'ouverture -->
         <section class="horaires-section">
-            <h2>Horaires d'ouverture</h2>
-            <p>Nous sommes ouverts :</p>
+            <h2>Openingstijden</h2>
+            <p>Wij zijn geopend:</p>
             <ul>
-                <li>Du lundi au samedi :</li>
-                <li>12h00 - 14h30</li>
-                <li>18h30 - 22h00</li>
+                <li>Van maandag tot zaterdag:</li>
+                <li>12:00 - 14:30</li>
+                <li>18:30 - 22:00</li>
             </ul>
         </section>
 
         <!-- Section Avis Clients -->
         <section class="avis-section">
-            <h2>Partagez votre avis</h2>
+            <h2>Deel je mening</h2>
             <!-- Formulaire de soumission d'avis -->
             <form action="#" method="POST" id="form-avis">
-                <label for="nom">Votre nom</label>
+                <label for="nom">Je naam</label>
                 <input type="text" id="nom" name="nom" required>
         
-                <label for="avis">Votre avis</label>
+                <label for="avis">Je mening</label>
                 <textarea id="avis" name="avis" rows="4" required></textarea>
         
-                <label for="note">Votre note</label>
+                <label for="note">Je beoordeling</label>
                 <div class="stars">
                     <input type="radio" id="star1" name="note" value="1"><label for="star1">☆</label>
                     <input type="radio" id="star2" name="note" value="2"><label for="star2">☆</label>
@@ -75,10 +75,10 @@
                 <p id="rating-value"></p> <!-- Ce paragraphe affichera la note sélectionnée -->
                       
         
-                <button type="submit">Envoyer votre avis</button>
+                <button type="submit">Verstuur je beoordeling</button>
             </form>
         
-            <h3>Avis de nos clients :</h3>
+            <h3>Beoordelingen van onze klanten:</h3>
             <div id="avis-container">
                 <!-- Les avis soumis seront affichés ici -->
             </div>
@@ -95,10 +95,10 @@
         stars.forEach(star => {
             star.addEventListener('change', function() {
                 const rating = this.value; // Récupérer la valeur de la note sélectionnée
-                console.log('Note sélectionnée :', rating); // Afficher dans la console (pour le test)
+                console.log('Gekozen beoordeling :', rating); // Afficher dans la console (pour le test)
                 
                 // Optionnel: afficher la note sélectionnée à l'utilisateur (dans un élément spécifique)
-                document.querySelector('#rating-value').textContent = `Vous avez sélectionné ${rating} étoile(s)`;
+                document.querySelector('#rating-value').textContent = `Je hebt ${rating} ster(ren) geselecteerd`;
             });
         });
 
@@ -116,8 +116,8 @@
             const avisContainer = document.getElementById('avis-container');
             const newAvis = document.createElement('div');
             newAvis.classList.add('avis');
-            newAvis.innerHTML = `
-                <strong>${name}</strong> a donné une note de ${rating} étoiles.
+            newAvis.innerHTML = ` 
+                <strong>${name}</strong> gaf een beoordeling van ${rating} ster(ren).
                 <p>${review}</p>
             `;
             avisContainer.appendChild(newAvis);

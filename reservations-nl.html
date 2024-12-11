@@ -1,45 +1,45 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Réservations - Les Frérot</title>
+    <title>Reserveringen - Les Frérot</title>
     <link rel="stylesheet" href="styles.css">
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.querySelector('form');
             const dateInput = document.getElementById('date');
 
-            // Obtenir la date du jour au format YYYY-MM-DD
+            // Huidige datum verkrijgen in het formaat YYYY-MM-DD
             const today = new Date();
             const yyyy = today.getFullYear();
-            const mm = (today.getMonth() + 1).toString().padStart(2, '0'); // Mois au format MM
-            const dd = today.getDate().toString().padStart(2, '0'); // Jour au format DD
+            const mm = (today.getMonth() + 1).toString().padStart(2, '0'); // Maand in MM-formaat
+            const dd = today.getDate().toString().padStart(2, '0'); // Dag in DD-formaat
             const todayFormatted = `${yyyy}-${mm}-${dd}`;
 
-            // Définir la date minimale (aujourd'hui)
+            // Minimale datum instellen (vandaag)
             dateInput.setAttribute('min', todayFormatted);
 
-            // Désactiver les dimanches
+            // Zondagen uitschakelen
             dateInput.addEventListener('input', function() {
                 const selectedDate = new Date(dateInput.value);
-                const day = selectedDate.getDay(); // 0 est dimanche, 1 est lundi, etc.
+                const day = selectedDate.getDay(); // 0 is zondag, 1 is maandag, etc.
 
-                // Si c'est un dimanche, désactiver la sélection
+                // Als het zondag is, de selectie uitschakelen
                 if (day === 0) {
-                    alert("Les réservations ne sont pas possibles le dimanche.");
-                    dateInput.setCustomValidity("Le dimanche n'est pas un jour disponible pour les réservations.");
+                    alert("Reserveringen zijn niet mogelijk op zondag.");
+                    dateInput.setCustomValidity("Zondag is geen beschikbare dag voor reserveringen.");
                 } else {
-                    dateInput.setCustomValidity(""); // Réinitialiser si ce n'est pas un dimanche
+                    dateInput.setCustomValidity(""); // Resetten als het geen zondag is
                 }
             });
 
-            // Désactiver le dimanche dans le calendrier
+            // Zondag uitschakelen in de kalender
             dateInput.addEventListener('click', function() {
                 const today = new Date();
-                const day = today.getDay(); // 0 est dimanche, 1 est lundi, etc.
+                const day = today.getDay(); // 0 is zondag, 1 is maandag, etc.
                 if (day === 0) {
-                    // Empêche la sélection du dimanche
+                    // Maakt het onmogelijk om zondag te selecteren
                     dateInput.value = '';
                 }
             });
@@ -50,12 +50,12 @@
     <header>
         <nav>
             <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="reservations.html">Réservations</a></li>
-                <li><a href="galerie.html">Galerie</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="a-propos.html">À propos</a></li>
+                <li><a href="index-nl.html">Home</a></li>
+                <li><a href="menu-nl.html">Menu</a></li>
+                <li><a href="reservations-nl.html">Reserveringen</a></li>
+                <li><a href="galerie-nl.html">Galerij</a></li>
+                <li><a href="contact-nl.html">Contact</a></li>
+                <li><a href="a-propos-nl.html">Over ons</a></li>
             </ul>
         </nav>
 
@@ -74,18 +74,18 @@
        </nav>
     </header>
     <main>
-        <h1>Réservez une table chez Les Frérot</h1>
+        <h1>Reserveer een tafel bij Les Frérot</h1>
         <form action="send_reservation.php" method="POST">
-            <label for="name">Nom</label>
+            <label for="name">Naam</label>
             <input type="text" id="name" name="name" required>
 
             <label for="email">E-mail</label>
             <input type="email" id="email" name="email" required>
 
-            <label for="date">Date de la réservation</label>
+            <label for="date">Datum van reservering</label>
             <input type="date" id="date" name="date" required>
 
-            <label for="time">Heure</label>
+            <label for="time">Tijd</label>
             <input list="available-times" id="time" name="time" required>
             <datalist id="available-times">
                 <option value="12:00">
@@ -110,14 +110,14 @@
                 <option value="21:00">
             </datalist>
 
-            <label for="guests">Nombre de personnes</label>
+            <label for="guests">Aantal personen</label>
             <input type="number" id="guests" name="guests" required min="2" max="10">
 
-            <button type="submit">Réserver</button>
+            <button type="submit">Reserveren</button>
         </form>
     </main>
     <footer>
-        <p>&copy; 2024 Les Frérot. Tous droits réservés.</p>
+        <p>&copy; 2024 Les Frérot. Alle rechten voorbehouden.</p>
     </footer>
 </body>
 </html>
