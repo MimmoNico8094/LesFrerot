@@ -405,15 +405,24 @@ iframe {
 }
 
 /* Stars */
-    .star_img {
-        width: 40px;
-        cursor: pointer;
-    }
+.star_img {
+    width: 40px;
+    cursor: pointer;
+}
 
-    .star_radio {
-        display: none;
-    }
+.star_radio {
+    display: none;
+}
 
+/* Disposition horizontale des étoiles sur mobile */
+@media (max-width: 768px) {
+    /* Affichage en ligne des étoiles */
+    .stars {
+        display: flex;
+        justify-content: center;
+        gap: 10px;  /* Espace entre les étoiles */
+    }
+}
 
 /* Pour les petits écrans */
 @media screen and (max-width: 768px) {
