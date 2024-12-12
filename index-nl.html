@@ -11,37 +11,38 @@
     <header>
         <nav>
             <ul>
-                <li><a href="index-nl.html">Home</a></li>
-                <li><a href="menu-nl.html">Menu</a></li>
-                <li><a href="reservations-nl.html">Reserveringen</a></li>
-                <li><a href="galerie-nl.html">Galerij</a></li>
-                <li><a href="contact-nl.html">Contact</a></li>
-                <li><a href="a-propos-nl.html">Over ons</a></li>
+                <li><a href="index-nl.html" class="menu-link">Startpagina</a></li>
+                <li><a href="menu-nl.html" class="menu-link">Menu</a></li>
+                <li><a href="reservations-nl.html" class="menu-link">Reserveringen</a></li>
+                <li><a href="galerie-nl.html" class="menu-link">Galerij</a></li>
+                <li><a href="contact-nl.html" class="menu-link">Contact</a></li>
+                <li><a href="a-propos-nl.html" class="menu-link">Over ons</a></li>
             </ul>
         </nav>
 
-        <!-- Sélecteur de langue -->
+        <!-- Taalkeuze met vlaggen -->
         <nav class="language-selector">
             <ul>
                 <li>
-                    <a href="index-nl.html">Nederlands</a>
-                    <span class="dutch"></span> <!-- Drapeau néerlandais -->
+                    <a href="index.html" class="language-link" data-lang="fr">Français</a>
+                    <span class="french"></span> <!-- Franse vlag -->
                 </li>
-               <li>
-                   <a href="index.html">Français</a>
-                   <span class="french"></span> <!-- Drapeau français -->
-               </li>
-           </ul>
-       </nav>
+                <li>
+                    <a href="index-nl.html" class="language-link" data-lang="nl">Nederlands</a>
+                    <span class="dutch"></span> <!-- Nederlandse vlag -->
+                </li>
+            </ul>
+        </nav>
     </header>
+
     <main>
-        <!-- Section d'introduction avec arrière-plan -->
+        <!-- Introductie sectie met achtergrond -->
         <section class="hero">
             <h1>Welkom bij Les Frérot</h1>
-            <p>Kom genieten van onze traditionele Italiaanse keuken in een warme en gezellige sfeer.</p>
+            <p>Ontdek onze traditionele Italiaanse keuken in een warme, gezellige sfeer.</p>
         </section>
 
-        <!-- Section Horaires d'ouverture -->
+        <!-- Openingstijden sectie -->
         <section class="horaires-section">
             <h2>Openingstijden</h2>
             <p>Wij zijn geopend:</p>
@@ -52,27 +53,42 @@
             </ul>
         </section>
 
-        <!-- Section Avis Clients -->
+        <!-- Klantbeoordelingen sectie -->
         <section class="avis-section">
-            <h2>Deel je mening</h2>
-            <!-- Formulaire de soumission d'avis -->
+            <h2>Deel je beoordeling</h2>
+            <!-- Beoordelingsformulier -->
             <form action="#" method="POST" id="form-avis">
-                <label for="nom">Je naam</label>
+                <label for="nom">Jouw naam</label>
                 <input type="text" id="nom" name="nom" required>
         
-                <label for="avis">Je mening</label>
+                <label for="avis">Jouw beoordeling</label>
                 <textarea id="avis" name="avis" rows="4" required></textarea>
         
-                <label for="note">Je beoordeling</label>
-                <div class="stars">
-                    <input type="radio" id="star1" name="note" value="1"><label for="star1">☆</label>
-                    <input type="radio" id="star2" name="note" value="2"><label for="star2">☆</label>
-                    <input type="radio" id="star3" name="note" value="3"><label for="star3">☆</label>
-                    <input type="radio" id="star4" name="note" value="4"><label for="star4">☆</label>
-                    <input type="radio" id="star5" name="note" value="5"><label for="star5">☆</label>
+                <label for="note">Jouw beoordeling</label>
+                <div>
+                    <label class="label_img" id="label_star_1">
+                        <img id="star_img_1" class="star_img" src="imgs/star_empty.png" />
+                        <input class="star_radio" name="star_rate" type="radio" id="star_1" value="1" />
+                    </label>
+                    <label class="label_img" id="label_star_2">
+                        <img id="star_img_2" class="star_img" src="imgs/star_empty.png" />
+                        <input class="star_radio" name="star_rate" type="radio" id="star_2" value="2" />
+                    </label>
+                    <label class="label_img" id="label_star_3">
+                        <img id="star_img_3" class="star_img" src="imgs/star_empty.png" />
+                        <input class="star_radio" name="star_rate" type="radio" id="star_3" value="3" />
+                    </label>
+                    <label class="label_img" id="label_star_4">
+                        <img id="star_img_4" class="star_img" src="imgs/star_empty.png" />
+                        <input class="star_radio" name="star_rate" type="radio" id="star_4" value="4" />
+                    </label>
+                    <label class="label_img" id="label_star_5">
+                        <img id="star_img_5" class="star_img" src="imgs/star_empty.png" />
+                        <input class="star_radio" name="star_rate" type="radio" id="star_5" value="5" />
+                    </label>
                 </div>
                 
-                <p id="rating-value"></p> <!-- Ce paragraphe affichera la note sélectionnée -->
+                <p id="rating-value"></p> <!-- Dit gedeelte toont de geselecteerde beoordeling -->
                       
         
                 <button type="submit">Verstuur je beoordeling</button>
@@ -80,52 +96,62 @@
         
             <h3>Beoordelingen van onze klanten:</h3>
             <div id="avis-container">
-                <!-- Les avis soumis seront affichés ici -->
+                <!-- Hier worden de ingediende beoordelingen weergegeven -->
             </div>
         </section>
 
     </main>
 
-    <!-- Placer le script ici avant la fermeture du body -->
-    <script>
-        // Fonction pour gérer le survol des étoiles et la sélection de la note
-        const stars = document.querySelectorAll('.stars input[type="radio"]');
-        
-        // Ajouter un événement de survol pour changer la couleur des étoiles
-        stars.forEach(star => {
-            star.addEventListener('change', function() {
-                const rating = this.value; // Récupérer la valeur de la note sélectionnée
-                console.log('Gekozen beoordeling :', rating); // Afficher dans la console (pour le test)
-                
-                // Optionnel: afficher la note sélectionnée à l'utilisateur (dans un élément spécifique)
-                document.querySelector('#rating-value').textContent = `Je hebt ${rating} ster(ren) geselecteerd`;
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script>
+    $('document').ready(function(){
+        // Fonction pour changer la langue en cliquant sur un lien
+        $('.language-link').on('click', function(e) {
+            e.preventDefault();
+            let lang = $(this).data('lang');
+            let links = document.querySelectorAll('.menu-link');
+            links.forEach(function(link) {
+                let href = link.getAttribute('href');
+                if (lang === 'nl') {
+                    link.setAttribute('href', href.replace('.html', '-nl.html'));
+                } else {
+                    link.setAttribute('href', href.replace('-nl.html', '.html'));
+                }
             });
+            window.location.href = lang === 'nl' ? 'index-nl.html' : 'index.html';
+        });
+        
+        $('.label_img').on('mouseover', function(){
+            
+            if ($('.star_radio:checked').length == 0) {
+                $('.star_img').attr('src','imgs/star_empty.png');
+
+                let starId = this.id.replace('label_star_','');
+                
+                for (let i = 1; i <= starId; i++) {
+                    $('#star_img_' + i).attr('src','imgs/star_full.png')
+                }
+            }
         });
 
-        // Gérer la soumission du formulaire
-        const form = document.getElementById('form-avis');
-        form.addEventListener('submit', function(event) {
-            event.preventDefault(); // Empêcher l'envoi du formulaire par défaut pour l'instant
-
-            // Récupérer le nom, l'avis et la note
-            const name = document.getElementById('nom').value;
-            const review = document.getElementById('avis').value;
-            const rating = document.querySelector('.stars input[type="radio"]:checked').value;
-
-            // Afficher l'avis dans le container (vous pouvez améliorer cela pour afficher les avis dynamiquement)
-            const avisContainer = document.getElementById('avis-container');
-            const newAvis = document.createElement('div');
-            newAvis.classList.add('avis');
-            newAvis.innerHTML = ` 
-                <strong>${name}</strong> gaf een beoordeling van ${rating} ster(ren).
-                <p>${review}</p>
-            `;
-            avisContainer.appendChild(newAvis);
-
-            // Réinitialiser le formulaire
-            form.reset();
-            document.querySelector('#rating-value').textContent = ''; // Réinitialiser la valeur affichée
+        $('.label_img').on('mouseout', function(){
+            
+            if ($('.star_radio:checked').length == 0) {
+                $('.star_img').attr('src','imgs/star_empty.png');
+            }
         });
-    </script>
+
+        $('.label_img').on('click', function(){
+                $('.star_img').attr('src','imgs/star_empty.png');
+
+                let starId = this.id.replace('label_star_','');
+                
+                for (let i = 1; i <= starId; i++) {
+                    $('#star_img_' + i).attr('src','imgs/star_full.png')
+                }
+        });
+    })
+</script>
 </body>
 </html>

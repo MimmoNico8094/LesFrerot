@@ -253,7 +253,6 @@ form button:hover {
 
 /* Style pour les labels */
 form label {
-    display: block; /* Forcer les labels à occuper toute la largeur */
     margin-bottom: 10px; /* Espace sous chaque label */
     font-size: 20px; /* Taille du texte des labels */
     color: white; /* Couleur des labels */
@@ -320,6 +319,7 @@ iframe {
         height: 250px; /* Hauteur réduite pour les très petits écrans */
     }
 }
+
 /* Format photos */
 .photos {
     display: flex;
@@ -404,17 +404,16 @@ iframe {
     background-color: #e67e22;
 }
 
-.stars {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    flex-wrap: wrap; /* Permet aux étoiles de se déplacer sur une nouvelle ligne si nécessaire */
-}
+/* Stars */
+    .star_img {
+        width: 40px;
+        cursor: pointer;
+    }
 
-.stars span {
-    font-size: 30px; /* Taille par défaut pour les écrans plus larges */
-    color: #f39c12;
-}
+    .star_radio {
+        display: none;
+    }
+
 
 /* Pour les petits écrans */
 @media screen and (max-width: 768px) {
@@ -422,7 +421,6 @@ iframe {
         font-size: 24px; /* Taille réduite sur les écrans de taille moyenne */
     }
 }
-
 
 /* Pour les très petits écrans */
 @media screen and (max-width: 480px) {
@@ -503,81 +501,4 @@ iframe {
 .language-selector li {
     display: inline-flex;
     align-items: center;
-}
-
-/* Médias queries pour les écrans de moins de 768px (tablettes et téléphones) */
-@media screen and (max-width: 768px) {
-    /* Ajuster le sélecteur de langues */
-    .language-selector {
-        position: static;
-        margin: 10px auto;
-        text-align: center;
-        flex-direction: column; /* Les langues s'empilent */
-    }
-
-    .language-selector ul {
-        flex-direction: column; /* Une langue par ligne */
-        gap: 10px;
-    }
-
-    /* Réduire la taille des drapeaux sur mobile */
-    .language-selector .french,
-    .language-selector .dutch {
-        width: 15px;
-        height: 10px;
-    }
-
-    /* Ajuster les paddings et marges générales */
-    body {
-        padding: 10px;
-        font-size: 14px; /* Taille de police plus petite pour le mobile */
-    }
-
-    nav ul {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    nav ul li {
-        margin-bottom: 10px;
-    }
-}
-
-/* Médias queries pour les écrans encore plus petits (moins de 480px) */
-@media screen and (max-width: 480px) {
-    /* Réduire davantage la taille des drapeaux */
-    .language-selector .french,
-    .language-selector .dutch {
-        width: 12px;
-        height: 8px;
-    }
-
-    /* Centrer le menu et ajuster les marges */
-    nav ul {
-        margin: 0 auto;
-    }
-
-    nav ul li a {
-        font-size: 14px;
-    }
-
-    h1 {
-        font-size: 20px;
-    }
-
-    p {
-        font-size: 12px;
-    }
-}
-
-.responsive-map {
-    width: 100%;
-    height: auto; /* Hauteur automatique */
-    max-width: 800px; /* Limiter la largeur maximale */
-    margin: 0 auto; /* Centrer la carte */
-}
-
-.responsive-map iframe {
-    width: 100%;
-    height: 400px; /* Ajuster la hauteur selon tes besoins */
 }

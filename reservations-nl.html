@@ -10,36 +10,36 @@
             const form = document.querySelector('form');
             const dateInput = document.getElementById('date');
 
-            // Huidige datum verkrijgen in het formaat YYYY-MM-DD
+            // Verkrijg de datum van vandaag in het formaat YYYY-MM-DD
             const today = new Date();
             const yyyy = today.getFullYear();
-            const mm = (today.getMonth() + 1).toString().padStart(2, '0'); // Maand in MM-formaat
-            const dd = today.getDate().toString().padStart(2, '0'); // Dag in DD-formaat
+            const mm = (today.getMonth() + 1).toString().padStart(2, '0'); // Maand in het formaat MM
+            const dd = today.getDate().toString().padStart(2, '0'); // Dag in het formaat DD
             const todayFormatted = `${yyyy}-${mm}-${dd}`;
 
-            // Minimale datum instellen (vandaag)
+            // Stel de minimale datum in (vandaag)
             dateInput.setAttribute('min', todayFormatted);
 
-            // Zondagen uitschakelen
+            // Deactiveer zondagen
             dateInput.addEventListener('input', function() {
                 const selectedDate = new Date(dateInput.value);
                 const day = selectedDate.getDay(); // 0 is zondag, 1 is maandag, etc.
 
-                // Als het zondag is, de selectie uitschakelen
+                // Als het zondag is, deactiveer de selectie
                 if (day === 0) {
                     alert("Reserveringen zijn niet mogelijk op zondag.");
                     dateInput.setCustomValidity("Zondag is geen beschikbare dag voor reserveringen.");
                 } else {
-                    dateInput.setCustomValidity(""); // Resetten als het geen zondag is
+                    dateInput.setCustomValidity(""); // Reset als het geen zondag is
                 }
             });
 
-            // Zondag uitschakelen in de kalender
+            // Deactiveer zondag in de kalender
             dateInput.addEventListener('click', function() {
                 const today = new Date();
                 const day = today.getDay(); // 0 is zondag, 1 is maandag, etc.
                 if (day === 0) {
-                    // Maakt het onmogelijk om zondag te selecteren
+                    // Voorkom selectie van zondag
                     dateInput.value = '';
                 }
             });
@@ -50,25 +50,25 @@
     <header>
         <nav>
             <ul>
-                <li><a href="index-nl.html">Home</a></li>
-                <li><a href="menu-nl.html">Menu</a></li>
-                <li><a href="reservations-nl.html">Reserveringen</a></li>
-                <li><a href="galerie-nl.html">Galerij</a></li>
-                <li><a href="contact-nl.html">Contact</a></li>
-                <li><a href="a-propos-nl.html">Over ons</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="reservations.html">Reserveringen</a></li>
+                <li><a href="galerie.html">Galerij</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="a-propos.html">Over ons</a></li>
             </ul>
         </nav>
 
-        <!-- Sélecteur de langue avec drapeaux -->
+        <!-- Taalselector met vlaggen -->
         <nav class="language-selector">
             <ul>
                <li>
-                   <a href="reservations.html">Français</a>
-                   <span class="french"></span> <!-- Drapeau français -->
+                   <a href="reservations.html">Frans</a>
+                   <span class="french"></span> <!-- Franse vlag -->
                </li>
                <li>
                    <a href="reservations-nl.html">Nederlands</a>
-                   <span class="dutch"></span> <!-- Drapeau néerlandais -->
+                   <span class="dutch"></span> <!-- Nederlandse vlag -->
                </li>
            </ul>
        </nav>
@@ -82,7 +82,7 @@
             <label for="email">E-mail</label>
             <input type="email" id="email" name="email" required>
 
-            <label for="date">Datum van reservering</label>
+            <label for="date">Reserveringsdatum</label>
             <input type="date" id="date" name="date" required>
 
             <label for="time">Tijd</label>
