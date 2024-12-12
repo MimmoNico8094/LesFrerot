@@ -540,3 +540,19 @@ iframe {
         font-size: 12px;
     }
 }
+
+.responsive-map {
+    width: 100%; /* La largeur s'adapte à celle du conteneur */
+    height: 0; /* Hauteur initiale */
+    padding-bottom: 56.25%; /* Ratio 16:9 pour l'aspect */
+    position: relative;
+    border: 0; /* Retire les bordures */
+}
+
+.responsive-map iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
