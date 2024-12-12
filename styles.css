@@ -178,10 +178,14 @@ p {
 
 .menu-category h3 {
     font-size: 24px;
-    color: var(--accent-color);
+    color: white;
     margin-bottom: 15px;
     border-bottom: 2px solid var(--accent-color);
     padding-bottom: 5px;
+}
+
+h3 {
+    color: black;
 }
 
 .menu-category ul {
@@ -377,7 +381,7 @@ iframe {
 #form-avis button {
     padding: 10px;
     background-color: var(--accent-color);
-    color: white;
+    color: rgb(255, 255, 255);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -451,4 +455,88 @@ iframe {
 .language-selector .dutch {
     background-image: url('https://upload.wikimedia.org/wikipedia/commons/2/20/Flag_of_the_Netherlands.svg');
     background-size: cover;
+}
+
+/* Styles par défaut pour les grands écrans */
+.language-selector {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.language-selector ul {
+    display: flex;
+    gap: 15px;
+}
+
+.language-selector li {
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Médias queries pour les écrans de moins de 768px (tablettes et téléphones) */
+@media screen and (max-width: 768px) {
+    /* Ajuster le sélecteur de langues */
+    .language-selector {
+        position: static;
+        margin: 10px auto;
+        text-align: center;
+        flex-direction: column; /* Les langues s'empilent */
+    }
+
+    .language-selector ul {
+        flex-direction: column; /* Une langue par ligne */
+        gap: 10px;
+    }
+
+    /* Réduire la taille des drapeaux sur mobile */
+    .language-selector .french,
+    .language-selector .dutch {
+        width: 15px;
+        height: 10px;
+    }
+
+    /* Ajuster les paddings et marges générales */
+    body {
+        padding: 10px;
+        font-size: 14px; /* Taille de police plus petite pour le mobile */
+    }
+
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul li {
+        margin-bottom: 10px;
+    }
+}
+
+/* Médias queries pour les écrans encore plus petits (moins de 480px) */
+@media screen and (max-width: 480px) {
+    /* Réduire davantage la taille des drapeaux */
+    .language-selector .french,
+    .language-selector .dutch {
+        width: 12px;
+        height: 8px;
+    }
+
+    /* Centrer le menu et ajuster les marges */
+    nav ul {
+        margin: 0 auto;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 12px;
+    }
 }
