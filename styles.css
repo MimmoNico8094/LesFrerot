@@ -407,27 +407,27 @@ iframe {
 .stars {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    gap: 8px;
     flex-wrap: wrap; /* Permet aux étoiles de se déplacer sur une nouvelle ligne si nécessaire */
-    gap: 10px; /* Ajoute de l'espace entre les étoiles */
 }
 
 .stars span {
-    font-size: 30px;
+    font-size: 30px; /* Taille par défaut pour les écrans plus larges */
     color: #f39c12;
-    flex-shrink: 0; /* Empêche les étoiles de rétrécir */
 }
 
-/* Responsivité pour les écrans plus petits */
+/* Pour les petits écrans */
 @media screen and (max-width: 768px) {
     .stars span {
-        font-size: 24px; /* Réduit la taille des étoiles sur les écrans moyens */
+        font-size: 24px; /* Taille réduite sur les écrans de taille moyenne */
     }
 }
 
+
+/* Pour les très petits écrans */
 @media screen and (max-width: 480px) {
     .stars span {
-        font-size: 20px; /* Réduit davantage la taille des étoiles sur les très petits écrans */
+        font-size: 20px; /* Taille encore plus petite sur les écrans très petits */
     }
 }
 
