@@ -301,12 +301,25 @@ iframe {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-    .galerie-section .gallery-images img {
-        width: 100%; /* Les images prennent toute la largeur de l'écran */
-        height: 200px; /* Hauteur fixe même sur mobile */
+    .responsive-map {
+        width: 100%;
+        height: auto; /* Hauteur automatique pour s'adapter à l'écran */
+        max-width: 800px; /* Limite la largeur pour ne pas dépasser l'écran */
+        margin: 0 auto; /* Centrer la carte sur l'écran */
+    }
+
+    .responsive-map iframe {
+        width: 100%;
+        height: 300px; /* Ajuster la hauteur pour les petits écrans */
     }
 }
 
+/* Option supplémentaire pour des écrans très petits (moins de 480px) */
+@media (max-width: 480px) {
+    .responsive-map iframe {
+        height: 250px; /* Hauteur réduite pour les très petits écrans */
+    }
+}
 /* Format photos */
 .photos {
     display: flex;
