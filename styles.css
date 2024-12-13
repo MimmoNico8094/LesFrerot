@@ -331,11 +331,17 @@ iframe {
     }
 }
 
-/* Option supplémentaire pour des écrans très petits (moins de 480px) */
-@media (max-width: 480px) {
-    .responsive-map iframe {
-        height: 250px; /* Hauteur réduite pour les très petits écrans */
-    }
+/* Style responsive pour les cartes */
+.responsive-map {
+    max-width: 100%; /* Empêche la carte de dépasser la largeur de l'écran */
+    overflow: hidden; /* Masque les débordements si présents */
+    padding: 0; /* Évite les marges ou paddings excessifs */
+}
+
+.responsive-map iframe {
+    width: 100%; /* Adapte la largeur de l'iframe à celle du conteneur */
+    height: auto; /* Ajuste la hauteur proportionnellement */
+    border: none; /* Supprime les bordures indésirables */
 }
 
 /* Format photos */
